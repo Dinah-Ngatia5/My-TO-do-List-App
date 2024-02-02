@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO :: By Dinah</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+    <header>
+        <div class="theme_toogle">
+            <button class="theme_toogle_btn"></button>
+        </div>
+        <span class="heading">My Day</span>
+    </header>
+    <section class="tasks">
+        <h1>TO-DO List</h1>
+        <input type="text" id="taskInput" placeholder="Enter a new task"/>
+        <button onclick="addTask()"></button>
+        <ul id="taskList">
+            <!--Tasks will be added here dynamically-->
+        </ul>
+    </section>
+    <footer>
+        <form id="new_task_form">
+            <button class="delete-btn" id="delete_btn" value="Delete"></button>
+            <button class="replace-btn" id="replace_btn" value="Replace"></button>
+        </form>
+    </footer>
+  </div>
+</body>
+
+</html>

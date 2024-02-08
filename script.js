@@ -92,8 +92,30 @@ function clearTasks() {
     localStorage.removeItem('tasks');
     renderTaskList()
 } 
-//code for the clear button functionality
+//Adding a click event listener to the clear button
 const clearBtn = document.querySelector('#clear-btn');
 clearBtn.addEventListener('click', () => {
     clearTasks()
 })
+// functions for drag and drop api 
+function allowDrop(event) {
+    event.preventDefault();
+}
+function drag(event) {
+    event.dataTransfer.setData('text/plain', event.target.dataset.index) 
+}
+function drop(event) {
+    event.preventDefault();
+    const fromIndex = event.dataTransfer.getData('text/plain');
+    const toIndex = event.target.dataset.index;
+    if( fromIndex !== toIndex) {
+        const [task] = tasks.splice(fromIndex, 1);
+        tasks.splice(toIndex, 0, task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTaskList();
+    }
+}
+
+
+//Initialization
+renderTaskList();

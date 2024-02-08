@@ -50,13 +50,8 @@ function addNewTask() {
         inputTask.value = "";
 }
 }
-//you can also add a new task when the enter is pressed down on 
+ 
 
-inputTask.addEventListener('keydown', (e) => {
-if(e.key === "Enter" && inputTask.value() !== "" ) {
-    addNewTask();
-}
-})
 //code for the add button functionality
 const addBtn =  document.querySelector('#add-task-btn');
 addBtn.addEventListener('click', () => {

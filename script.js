@@ -1,4 +1,4 @@
-//Load tasks from local storage
+//Load todos from local storage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 //function for rendering tasks list 
@@ -6,15 +6,12 @@ function renderTaskList() {
     const tasksContainer = document.querySelector('#tasks.container');
     tasksContainer.innerHTML ="";
     tasks.forEach((task, index) => {
-        const taskElement = document.createElement('div');
+        const taskElement = document.createElement('li');
         taskElement.classList.add("task");
         taskElement.draggable = "true";
         taskElement.setAttribute('data-index', index);
         taskElement.setAttribute("ondragstart",'drag(event');
-        //Set the task name
-        const taskName = document.createElement('span');
-        taskName.textContent = task.text;
-        taskElement.appendChild(taskName);
+    
         //Set a Checkbox input type(It is checked when a task is completed)
         const checkBox = document.createElement('input');
         checkBox.type = "checkbox";
@@ -50,7 +47,6 @@ function addNewTask() {
         inputTask.value = "";
 }
 }
- 
 
 //code for the add button functionality
 const addBtn =  document.querySelector('#add-task-btn');

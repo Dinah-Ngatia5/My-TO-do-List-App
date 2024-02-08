@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-image:url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-backgrounds-photos%2Fto-do-list&psig=AOvVaw0IlUXSKfhO7Xyq4USwUCqQ&ust=1707492950520000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKCG_IyJnIQDFQAAAAAdAAAAABAD")
 }
 .container {
     position: relative;
@@ -33,10 +34,11 @@ ul {
 li {
     margin-bottom: 10px
 }
-button {
+ #add-btn {
     padding: 5px 10px;
     background-color: #4caf50;
     color: white;
     border: none;
     cursor: pointer;
+    position:relative;
 }

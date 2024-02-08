@@ -9,29 +9,30 @@
     <script src="script.js" defer></script>
 </head>
 
-<body>
+<body> 
     <div class="container">
-    <header>
-        <div class="theme_toogle">
-            <button class="theme_toogle_btn"></button>
+   <header class="">
+    <h1>Todo List App</h1>
+    <p>👋Welcome User</p>
+   </header>
+
+   <main>
+    <div class="">
+        <div class="tasks-container" id="tasks-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <!-- Tasks will be dynamically added here -->
         </div>
-        <span class="heading">My Day</span>
-    </header>
-    <section class="tasks">
-        <h1>TO-DO List</h1>
-        <input type="text" id="taskInput" placeholder="Enter a new task"/>
-        <button onclick="addTask()"></button>
-        <ul id="taskList">
-            <!--Tasks will be added here dynamically-->
-        </ul>
-    </section>
-    <footer>
-        <form id="new_task_form">
-            <button class="delete-btn" id="delete_btn" value="Delete"></button>
-            <button class="replace-btn" id="replace_btn" value="Replace"></button>
-        </form>
-    </footer>
-  </div>
+            <input
+            type="text"
+            class=""
+            placeholder="Create a new todo..."
+            spellcheck="false"
+            autocomplete="off"
+            /> 
+            <button id="add-task-btn" name="Add">Add Task</button>
+            <button id="clear-all-btn" name="Clear">Clear All</button>
+        </div>
+</div>
+<script src="app.js"></script>
 </body>
 
 </html>

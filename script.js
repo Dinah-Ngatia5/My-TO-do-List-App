@@ -1,133 +1,99 @@
-const inputField = document.querySelector('input[type="text"]');
-const todoList = document.querySelector('.todos');
-const addBtn = document.querySelector('#add.btn');
-const itemsLeftElement = document.querySelector('#items-left');
-const allBtn = document.querySelector('#all');
-const activeBtn = document.querySelector('#active');
-const completedBtn = document.querySelector('#completed');
-const clearBtn = document.querySelector('#clear');
+//Load tasks from local storage
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+//function for rendering tasks list 
+function renderTaskList() {
+    const tasksContainer = document.querySelector('#tasks.container');
+    tasksContainer.innerHTML ="";
+    tasks.forEach((task, index) => {
+        const taskElement = document.createElement('div');
+        taskElement.classList.add("task");
+        taskElement.draggable = "true";
+        taskElement.setAttribute('data-index', index);
+        taskElement.setAttribute("ondragstart",'drag(event');
+        //Set the task name
+        const taskName = document.createElement('span');
+        taskName.textContent = task.text;
+        taskElement.appendChild(taskName);
+        //Set a Checkbox input type(It is checked when a task is completed)
+        const checkBox = document.createElement('input');
+        checkBox.type = "checkbox";
+        checkBox.checked = task.completed;
+        checkBox.addEventListener('change', () => {completeTask(index)});
+        taskElement.appendChild(checkBox);
 
 
+        //Button for editing the task item
+        const editBtn = document.createElement('button');
+        editBtn.textContent = '📝';
+        editBtn.addEventListener('click', () => editTask(index));
+        taskElement.appendChild(editBtn);
 
-let todos = [];
-//Check if todos exist in local storage
-if(localStorage.getItem("todos")) {
-    todos = JSON.parse(localStorage.getItem("todos"));
-    renderTodoList();
-}
+        //Button for Deleting an item from the tasks' list
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.addEventListener('click', () => deleteTask(index));
+      taskElement.appendChild(deleteBtn);
 
-const addTodoItem = () => {
-    if(inputField.value.trim() !== "") {
-        const todoText = inputField.value;
-        inputField.value = "";
+     tasksContainer.appendChild(taskElement);
 
-        const todoItemId = Math.floor(Math.random() * 10000);
-
-        const newTodoItem = {
-            id: todoItemId,
-            text: todoText,
-            isComplete: false,
-        };
-        todos.push(newTodoItem);
-        localStorage.setItem("todos", JSON.stringify(todos));
-
-        renderTodoList();
-    }
-};
- inputField.addEventListener("keydown", (e) => {
-    if(e.key === "Enter" && inputField.value.trim() !== "") {
-        addTodoItem();
-    }
- });
-   addBtn.addEventListener("click", () => {
-    addTodoItem();
-   })
-
-   //function for rendering the TodoList
-   function renderTodoList() {
-    todoList.innerHTML = "";
-    todos.forEach((todo, index) => {
-        const newTodoItem = document.createElement('li');
-        newTodoItem.className = "card todo-item";
-        newTodoItem.setAttribute("draggable", "true");
-        newTodoItem.setAttribute('data-index', index)
-        const todoContent = `
-        <div class = "todo">
-        <input type = "checkbox" id="check-box-${todo.id}" 
-        ${todo.isComplete ? "checked" : "" }> 
-        <label for="check-box-${todo.id}></label>
-        <p>${todo.text}</p>
-        </div>
-     
-        `;
-        newTodoItem.innerHTML = todoContent;
-        todoList.appendChild(newTodoItem);
     });
-    addDraggableEventListeners();
 }
-// Drag and Drop functionality 
-let dragStartIndex;
-function addDraggableEventListeners() {
-    const todoItems = document.querySelectorAll(".todo-item");
-
-    todoItems.forEach((item, index)=> {
-        item.addEventListener("dragstart", () => 
-        item.classList.add("dragging"))
-
-        item.addEventListener("dragend", () => {
-            item.classList.remove("dragging")
-            updateTodosOrder();
-        })
-    })
-    todoList.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        const draggingItem = document.querySelector(".dragging");
-        //get array of all items except the one dragging
-        let siblings = [...todoList.querySelectorAll(".todo-item:not(.dragging")];
-         
-        //find next sibling item after which the dragging item should be placed
-         let nextSibling = siblings.find(sibling => {
-            return e.clientY <= sibling.offsetTop + sibling.offSetHeight / 2;
-         });
-         // Inserting the dragging item before the found sibling
-         todoList.insertBefore(draggingItem, nextSibling);
-    });
-    todoList.addEventListener('dragenter', e => e.preventDefault());
+// function for adding a new task Item from the input field
+function addNewTask() {
+    const inputTask = document.querySelector('#new-task');
+    const inputContent = inputTask.value.trim();
+    if(inputContent !== '') {
+        tasks.push({ text: inputContent, completed: false});
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTaskList();
+        inputTask.value = "";
 }
-function updateTodosOrder() {
-    const updatedTodos = [];
-    const todoItems = document.querySelectorAll('.todo-item');
+}
+//you can also add a new task when the enter is pressed down on 
 
-    todoItems.forEach((item) => {
-        const index = parseInt(item.getAttribute("data-index"));
-        updatedTodos.push(todo[index]);
-    });
-    todos = updatedTodos;
-    localStorage.setItem("todos", JSON.stringify(todos));
+inputTask.addEventListener('keydown', (e) => {
+if(e.key === "Enter" && inputTask.value() !== "" ) {
+    addNewTask();
+}
+})
+//code for the add button functionality
+const addBtn =  document.querySelector('#add-task-btn');
+addBtn.addEventListener('click', () => {
+    addNewTask()
+})
+
+//function for editing tasks 
+function editTask(index) {
+   const newTxt = prompt('Enter new Task text:', tasks[index].text);
+   if(newTxt !== null && newTxt.trim() !== "") {
+    tasks[index].text = newTxt.trim();
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    renderTaskList();
+
+   }
 }
 
-//function for updatind todo list item completion status
-
-
-//function for Deleting Todo item 
-const deleteItem = () => {
-
-};
-// function for updating Items left count
-const updateItemsLeft = () => {
-    const incompleteItems = todos.filter((todo) => !todo.isComplete);
-    itemsLeftElement.textContent = incompleteItems.length;
+//function for deleting a task 
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    renderTaskList();
 }
- 
-// function for clearing completed todos
-function clearCompletedTodos() {
-    todos = todos.filter((todo) => !todo.isComplete);
-
-    localStorage.setItem("todos", JSON.stringify(todos));
-    renderTodoList();
-    updateItemsLeft();
+//function for declaring a task as complete
+function completeTask(index) {
+    tasks[index].completed = !tasks[index].completed;
+    localStorage.setItem('tasks',JSON.stringify(tasks));
+    renderTaskList();
 }
+//function for clearing all tasks
+function clearTasks() {
+    tasks=[];
+    localStorage.removeItem('tasks');
+    renderTaskList()
+} 
+//code for the clear button functionality
+const clearBtn = document.querySelector('#clear-btn');
 clearBtn.addEventListener('click', () => {
-    clearCompletedTodos();
-}
-)
+    clearTasks()
+})

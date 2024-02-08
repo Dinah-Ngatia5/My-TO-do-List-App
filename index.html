@@ -11,16 +11,13 @@
 <body> 
     <div class="container">
    <header class="">
-    <h1>Todo List App</h1>
+    <h1><i>Todo List App</i></h1>
     <p>👋Welcome User</p>
    </header>
 
    <main>
     <div class="">
-        <div class="tasks-container" id="tasks-container" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-            <!-- Tasks will be dynamically added here -->
-        </div>
+        
             <input
             type="text"
             id="new-task"
@@ -31,6 +28,11 @@
             /> 
             <button id="add-task-btn" name="Add">Add Task</button>
             <button id="clear-btn" name="Clear">Clear All</button>
+        </div>
+        <div class="tasks-container" id="tasks-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+           <ul class ='todos'></ul>
+           <li></li>
+            <!-- Tasks will be dynamically added here -->
         </div>
 </div>
 <script src="script.js"></script>

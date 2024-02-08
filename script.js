@@ -4,7 +4,8 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 //function for rendering tasks list 
 function renderTaskList() {
     const tasksContainer = document.querySelector('#tasks.container');
-    tasksContainer.innerHTML ="";
+    const todos = document.querySelector(".todos");
+    todos.innerHTML ="";
     tasks.forEach((task, index) => {
         const taskElement = document.createElement('li');
         taskElement.classList.add("task");
@@ -12,7 +13,7 @@ function renderTaskList() {
         taskElement.setAttribute('data-index', index);
         taskElement.setAttribute("ondragstart",'drag(event');
     
-        //Set a Checkbox input type(It is checked when a task is completed)
+        //Set an input of type checkbox (It is checked when a task is completed)
         const checkBox = document.createElement('input');
         checkBox.type = "checkbox";
         checkBox.checked = task.completed;
@@ -32,7 +33,7 @@ function renderTaskList() {
       deleteBtn.addEventListener('click', () => deleteTask(index));
       taskElement.appendChild(deleteBtn);
 
-     tasksContainer.appendChild(taskElement);
+     todos.appendChild(taskElement);
 
     });
 }

@@ -10,7 +10,7 @@ This To-Do List Application is a comprehensive task management tool designed to 
 
 ### Key Features 
 1. Task Management 
-- Add Tasks: Users can easily add new tasks to their to-do list by typing into the input field and pressing the "Add" button.
+- Add Tasks: Users can easily add new tasks to their to-do list by typing into the input field and pressing the add task button.
 - Editing Tasks:. Users can edit the task directly and click the edit button to save the changes.
 - Complete Tasks: Users can mark tasks as completed by clicking the checkbox next to the task name.
 - Delete Tasks: Users can delete tasks by clicking the delete icon next to the task.
@@ -21,7 +21,7 @@ This To-Do List Application is a comprehensive task management tool designed to 
 ## Usage
 1. Clone the repository to your local machine:
 ~~~
-git clone https://github.com/
+git clone https://github.com/Dinah-Ngatia5/My-TO-do-List-App
 
 ~~~
 2. Open the 'index.html' file in your preffered web browser.

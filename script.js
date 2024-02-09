@@ -3,7 +3,6 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 //function for rendering tasks list 
 function renderTaskList() {
-    const tasksContainer = document.querySelector('#tasks.container');
     const todos = document.querySelector(".todos");
     todos.innerHTML ="";
     tasks.forEach((task, index) => {

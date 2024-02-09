@@ -1,6 +1,8 @@
 * {
     font-family: "Times New Roman";
     outline: none;
+    scrollbar-width: thin;
+    scrollbar-color: pink #f1f1f1; /*Color of the thumb and track*/
 }
 h1 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -38,6 +40,11 @@ header {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
+.tasks-container {
+   max-height: 300px; /*Adjust as needed */
+   overflow-y: auto; /*Enables vertical scrolling  */
+}
+
 input {
     padding: 10px;
     border: 2px;
@@ -67,7 +74,7 @@ li {
     border-radius: 10px;
 }
 footer {
-    position: fixed;
+    position: sticky;
     bottom: auto;
 
 

@@ -41,6 +41,7 @@ function renderTaskList() {
 
      todos.appendChild(taskElement);
 
+
     });
 }
 // function for adding a new task Item from the input field

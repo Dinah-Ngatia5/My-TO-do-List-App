@@ -51,7 +51,10 @@ This To-do List Application is designed to simplify task management and improve 
 Start organizing your tasks and boosting your productivity with my To-do List Application. Try it out now and experience the difference!
 
 ## Licence
-This project is licensed under the `MIT License`.
+This project is licensed under the 
+~~~
+MIT License
+ ~~~
 
 
 

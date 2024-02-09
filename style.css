@@ -38,6 +38,13 @@ header {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
+input {
+    padding: 10px;
+    border: 2px;
+    border-radius: 10px;
+    width: 80%rem;
+    
+}
 
 ul {
     list-style-type: none;

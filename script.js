@@ -113,9 +113,15 @@ function drop(event) {
         renderTaskList();
     }
 }
+document.getELementById('tasks-container').addEventListener('change', () => {
+    allowDrop();
+    drag();
+    drop();
 
+})
 
 //Initialization
 renderTaskList();
+
 console.log("This page has finished loading");
 }

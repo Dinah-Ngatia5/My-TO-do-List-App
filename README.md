@@ -1,4 +1,4 @@
-# To-do List Application <br>
+# My To-do List Application <br>
 </br>
 
 
@@ -11,7 +11,7 @@ This To-Do List Application is a comprehensive task management tool designed to 
 ### Key Features 
 1. Task Management 
 - Add Tasks: Users can easily add new tasks to their to-do list by typing into the input field and pressing the add task button.
-- Editing Tasks:. Users can edit the task directly and click the edit button to save the changes.
+- Editing Tasks: Users can edit the task directly and click the edit button to save the changes.
 - Complete Tasks: Users can mark tasks as completed by clicking the checkbox next to the task name.
 - Delete Tasks: Users can delete tasks by clicking the delete icon next to the task.
  

@@ -20,11 +20,17 @@ This To-Do List Application is a comprehensive task management tool designed to 
 
 ## Dependencies and Requirement
 To run this to-do list application, the followind dependencies and requirements are needed:
-1.Web Browser: The application runs in a web browser. Any modern web browser should work.
+
+1. Web Browser: The application runs in a web browser. Any modern web browser should work.
+
 2. HTML, CSS and JavaScript Support: Ensure that your web browser supports HTML, CSS and Javascript, as the application is built using these technologies.
+
 3. Code Editor: You can use any code editor or intergrated environment(IDE) to write and edit the files.
+
 4. Browser Compatibility: Ensure that the application is compatible with the web browser(s) you intend to use.
-5. No External Libraries or Frameworks: The provided application does not rely on any external libraries or frameworks. It is built using plain HTML, CSS and Javascript, making it lightweight and easy to run without adding depencies.
+
+5. No External Libraries or Frameworks: The provided application does not rely on any external libraries or frameworks. It is built using plain HTML, CSS and Javascript, making it lightweight and easy to run without adding dependencies.
+
 6. Live Server Extension
 
  

@@ -1,7 +1,9 @@
-//Load todos from local storage
+window.onload = () => {
+//Load the todos from local storage in the browser(Ensure that the browser you're using supports localStorage feature, 
+//I personally recommend using firefox)
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-//function for rendering tasks list 
+//Declare a function for the rendering tasks list 
 function renderTaskList() {
     const todos = document.querySelector(".todos");
     todos.innerHTML ="";
@@ -17,7 +19,7 @@ function renderTaskList() {
         taskName.textContent = task.text;
         taskElement.appendChild(taskName);
     
-        //Set an input of type checkbox (It is checked when a task is completed)
+        //Create an input of type checkbox (Which is checked when a task is completed)
         const checkBox = document.createElement('input');
         checkBox.type = "checkbox";
         checkBox.checked = task.completed;
@@ -88,7 +90,7 @@ function clearTasks() {
     localStorage.removeItem('tasks');
     renderTaskList()
 } 
-//Adding a click event listener to the clear button
+//Adding a 'click' event listener to the clear button
 const clearBtn = document.querySelector('#clear-btn');
 clearBtn.addEventListener('click', () => {
     clearTasks()
@@ -115,3 +117,5 @@ function drop(event) {
 
 //Initialization
 renderTaskList();
+console.log("This page has finished loading");
+}

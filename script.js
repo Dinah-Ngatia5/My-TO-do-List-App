@@ -35,7 +35,7 @@ function renderTaskList() {
 
         //Button for Deleting an item from the tasks' list
       const deleteBtn = document.createElement('button');
-      deleteBtn.textContent = 'Delete';
+      deleteBtn.textContent = '🚮';
       deleteBtn.addEventListener('click', () => deleteTask(index));
       taskElement.appendChild(deleteBtn);
 

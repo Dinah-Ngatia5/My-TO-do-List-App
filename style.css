@@ -46,13 +46,16 @@ ul {
 li {
     margin-bottom: 10px
 }
- #add-btn {
-    padding: 5px 10px;
-    background-color: #4caf50;
+ #add-task-btn {
+    
+    background-color:palevioletred;
     color: white;
-    border: none;
     cursor: pointer;
     position:relative;
+}
+#clear-btn {
+    background-color: red;
+    color:#fff
 }
 footer {
     position: fixed;

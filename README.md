@@ -41,7 +41,6 @@ Contributions to enhance this To-Do List App are welcome! If you'd like to contr
 
 ## Future Enhancements 
 This To-do List Application is continuously evolving, and some of the future enhancements that I may incorporate in the app with time, include the following:
-- Reminders and Notifications: Implementing reminder and notification functionalities to alert the users about upcoming tasks and deadlines.
 - Integration: Integrating with third-party services such as Google Calendar and Trello(Atlassian) for enhanced task management capabilities.
 - User Accounts: Introducing user accounts to enable users to access their to-do lists across multiple devices.
 

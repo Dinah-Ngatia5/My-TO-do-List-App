@@ -11,7 +11,12 @@ function renderTaskList() {
         taskElement.classList.add("task");
         taskElement.draggable = "true";
         taskElement.setAttribute('data-index', index);
-        taskElement.setAttribute("ondragstart",'drag(event');
+        taskElement.setAttribute("ondragstart",'drag(event)');
+
+        //task name
+        const taskName = document.createElement('span');
+        taskName.textContent = task.text;
+        taskElement.appendChild(taskName);
     
         //Set an input of type checkbox (It is checked when a task is completed)
         const checkBox = document.createElement('input');

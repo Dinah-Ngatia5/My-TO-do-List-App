@@ -53,6 +53,9 @@ li {
     cursor: pointer;
     position:relative;
 }
-input checkbox {
-    
+footer {
+    position: fixed;
+    bottom: auto;
+
+
 }

@@ -4,8 +4,8 @@
 }
 h1 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: lighter;
-    text-decoration: underline;
+    font-weight: bold;
+    text-decoration:none;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     background-image:url('.../DINAHN/todoimage.jpg'),
-    linear-gradient(to left,purple, #fff);
+    linear-gradient(to left, burlywood, #fff);
     
     
 }
@@ -59,10 +59,12 @@ li {
     color: white;
     cursor: pointer;
     position:relative;
+    border-radius: 10px;
 }
 #clear-btn {
     background-color: red;
-    color:#fff
+    color:#fff;
+    border-radius: 10px;
 }
 footer {
     position: fixed;
